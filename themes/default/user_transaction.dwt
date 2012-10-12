@@ -305,6 +305,18 @@
         </tr>
         <!-- {/if} -->
 
+        <br/>
+
+        <!-- {if $order.invoice_no}-->
+        <h5><span>物流跟踪</span></h5>
+        <div class="blank"></div>
+        <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
+        <tr>
+          <td bgcolor="#ffffff"><div id="retData"></div></td>
+        </tr>
+        </table>
+        <!--{/if}-->
+
         <!--{if $virtual_card}-->
         <tr>
           <td align="right" bgcolor="#ffffff">{$lang.virtual_card_info}：</td>
