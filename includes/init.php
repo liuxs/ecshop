@@ -304,4 +304,6 @@ else
     ob_start();
 }
 
+/* Shopiy */
+@include(ROOT_PATH.'themes/'.$_CFG['template'].'/functions.php');
 ?>

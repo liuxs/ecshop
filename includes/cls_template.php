@@ -361,6 +361,17 @@ class cls_template
         {
             return '{}';
         }
+		elseif (substr($tag,0,4) == 'siy:') { // david
+			$t = $this->get_para(str_replace('siy:','name=',$tag), false);
+			$out = "<?php \n" . '$k = ' . preg_replace("/(\'\\$[^,]+)/e" , "stripslashes(trim('\\1','\''));", var_export($t, true)) . ";\n";
+			$out .= '$plugin = \'siy_\'.$k[\'name\'];' . "\n";
+			$out .= 'if (function_exists($plugin)) {' . "\n";
+			$out .= '	echo $plugin($k);' . "\n";
+			$out .= '} else {' . "\n";
+			$out .= '	echo "<!-- error: ".$k[\'name\']." not installed -->";' . "\n";
+			$out .= '}' . "\n?>";
+			return $out;
+		}
         elseif ($tag{0} == '*' && substr($tag, -1) == '*') // 注释部分
         {
             return '';
