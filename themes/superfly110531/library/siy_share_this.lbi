@@ -1,0 +1,8 @@
+<p class="share_this">
+	<a class="st_renren" href="http://share.renren.com/share/buttonshare.do?link={$this_url}&title={$page_title|escape:url}" rel="external">人人网</a>
+	<a class="st_kaixin" href="http://www.kaixin001.com/repaste/share.php?rtitle={$page_title|escape:url}&rurl={$this_url}&rcontent={$page_title|escape:url}" rel="external">开心网</a>
+	<a class="st_douban" href="http://www.douban.com/recommend/?url={$this_url}&title={$page_title|escape:url}" rel="external">豆瓣</a>
+	<a class="st_sina" href="http://v.t.sina.com.cn/share/share.php?title={$page_title|escape:url}&url={$this_url}&source=bookmark&appkey=2992571369" rel="external">新浪微博</a>
+	<a class="st_qq" href="http://shuqian.qq.com/post?title={$page_title|escape:url}&uri={$this_url}" rel="external">QQ书签</a>
+	<a class="st_gg" href="https://www.google.com/bookmarks/mark?op=add&bkmk={$this_url}&title={$page_title|escape:url}" rel="external">Google</a>
+</p>

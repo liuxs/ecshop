@@ -1,0 +1,55 @@
+{$render.before_footer}
+<div id="footer">
+	<div class="container">
+		{include file='library/links.lbi'}
+		<div class="footer_listing box thin_box full_box">
+			<div class="hd"><h3></h3><div class="extra"></div></div>
+			<div class="bottom_nav_wrapper clearfix">
+				<p class="bottom_nav">{if $navigator_list.bottom}{foreach from=$navigator_list.bottom item=nav name=nav_bottom_list}<a href="{$nav.url}"{if $nav.opennew eq 1} rel="external"{/if} class="{if $smarty.foreach.nav_bottom_list.first}first{/if}{if $smarty.foreach.nav_bottom_list.index gte $option.bottom_navigator_number} hidden{/if}">{$nav.name}</a>{/foreach}{/if}</p>
+				<a href="#top" class="back_to_top">{$lang.back_to_top}</a>
+			</div>
+			<div class="bd">
+				<div class="inner clearfix">
+					<div class="contact">
+						<h4>{$lang.contact_information}</h4>
+						{if $service_phone}<p class="tel">{$service_phone}</p>{/if}
+						{if $service_email}<p>{$lang.email}{$lang.colon}{$service_email}</p>{/if}
+						{if $shop_address}<p>{$shop_address}</p>{/if}
+						{foreach from=$qq item=im name=im}
+						{if $im}{if $smarty.foreach.im.first}<p>{/if}<a href="http://wpa.qq.com/msgrd?v=3&uin={$im}&site=qq&menu=yes" rel="external"><img src="http://wpa.qq.com/pa?p=2:{$im}:41" alt="QQ" />{$im}</a>{if $smarty.foreach.im.last}</p>{/if}{/if}
+						{/foreach}
+						{foreach from=$ww item=im name=im}
+						{if $im}{if $smarty.foreach.im.first}<p>{/if}<a href="http://amos1.taobao.com/msg.ww?v=2&uid={$im|escape:u8_url}&s=2" rel="external"><img src="http://amos1.taobao.com/online.ww?v=2&uid={$im|escape:u8_url}&s=2" alt="WangWang" />{$im}</a>{if $smarty.foreach.im.last}</p>{/if}{/if}
+						{/foreach}
+						{foreach from=$ym item=im name=im}
+						{if $im}{if $smarty.foreach.im.first}<p>{/if}<a href="http://edit.yahoo.com/config/send_webmesg?.target={$im}n&.src=pg" rel="external"><img src="static/img/icon/yahoo.gif" alt="Yahoo Messenger" />{$im}</a>{if $smarty.foreach.im.last}</p>{/if}{/if}
+						{/foreach}
+						{foreach from=$msn item=im name=im}
+						{if $im}{if $smarty.foreach.im.first}<p>{/if}<a href="msnim:chat?contact={$im}" rel="external"><img src="static/img/icon/msn.gif" alt="MSN" />{$im}</a>{if $smarty.foreach.im.last}</p>{/if}{/if}
+						{/foreach}
+						{foreach from=$skype item=im name=im}
+						{if $im}{if $smarty.foreach.im.first}<p>{/if}<a href="skype:{$im|escape:url}?call" rel="external"><img src="http://mystatus.skype.com/smallclassic/{$im|escape:url}" alt="Skype" />{$im}</a>{if $smarty.foreach.im.last}</p>{/if}{/if}
+						{/foreach}
+					</div>
+					<div class="articles">
+					{foreach from=$helps item=help_cat name=helps}
+					{if $smarty.foreach.helps.index < 5}
+					<dl{if $smarty.foreach.helps.first} class="first"{/if}>
+						<dt><a href="{$help_cat.cat_id}">{$help_cat.cat_name}</a></dt>
+						{foreach from=$help_cat.article item=item name=help_list}
+						{if $smarty.foreach.help_list.index < 5}
+						<dd><a href="{$item.url}">{$item.short_title}</a></dd>
+						{/if}
+						{/foreach}
+					</dl>
+					{/if}
+					{/foreach}
+					</div>
+				</div>
+			</div>
+		</div>
+		<p class="copyright">{$copyright}{if $icp_number}<a href="http://www.miibeian.gov.cn/" rel="external">{$icp_number}</a>{/if}</p>
+		<p class="credits">Powered by <a href="http://www.ecshop.com/" rel="external">ECShop</a> &amp; <a href="http://www.shopiy.com/" rel="external">Shopiy</a></p>
+	</div>
+</div>
+{$render.after_footer}

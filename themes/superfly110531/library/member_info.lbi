@@ -1,0 +1,9 @@
+{if $user_info}
+<em>{$lang.hello}&nbsp;{$user_info.username|truncate:15}</em>
+<a href="user.php" class="gotouser">{$lang.edit_user_info}</a>
+<a href="user.php?act=logout" class="logout">{$lang.user_logout}</a>
+{else}
+<em>{$lang.welcome_to}{$shop_name}{$lang.excla}</em>
+<a href="user.php?act=register" class="register">{$lang.reg_free}</a>
+<a href="user.php?act=login" class="login{if $smarty.get.act neq 'login' && $smarty.get.step neq 'login'} quick_login{/if}">{$lang.login}</a>
+{/if}
